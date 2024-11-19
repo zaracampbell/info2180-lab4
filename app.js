@@ -1,14 +1,15 @@
 document.getElementById("search").addEventListener("click", function () {
-    // Make an AJAX call
+    const query = document.getElementById("query").value.trim();
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "superheroes.php", true);
+    const url = query ? `superheroes.php?query=${encodeURIComponent(query)}` : "superheroes.php";
+
+    xhr.open("GET", url, true);
     xhr.onload = function () {
         if (xhr.status === 200) {
-            alert(xhr.responseText); // Show the superheroes in an alert
+            document.getElementById("result").innerHTML = xhr.responseText;
         } else {
-            alert("An error occurred while fetching superheroes.");
+            document.getElementById("result").innerHTML = "An error occurred while fetching superheroes.";
         }
     };
     xhr.send();
 });
-
