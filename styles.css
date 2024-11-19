@@ -10,3 +10,16 @@ button {
     cursor: pointer;
 }
 
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+h3, h4 {
+    margin: 5px 0;
+}
+
+p {
+    color: gray;
+}
+
