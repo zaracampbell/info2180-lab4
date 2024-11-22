@@ -63,14 +63,6 @@ $superheroes = [
   ], 
 ];
 
-?>
-
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
-
 // Retrieve query from the request (if any)
 $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 
