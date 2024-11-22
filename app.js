@@ -5,13 +5,13 @@ document.getElementById("search").addEventListener("click", function () {
     // Build the URL for the request (empty query returns full list)
     const url = query ? `superheroes.php?query=${encodeURIComponent(query)}` : "superheroes.php";
 
-    xhr.open("GET", url, true);
+    xhr.open("GET", url, true); // Set up the GET request to superheroes.php
     xhr.onload = function () {
         if (xhr.status === 200) {
-            document.getElementById("result").innerHTML = xhr.responseText; // Show results
+            document.getElementById("result").innerHTML = xhr.responseText; // Display result
         } else {
-            document.getElementById("result").innerHTML = "An error occurred. Please try again."; // Handle error
+            document.getElementById("result").innerHTML = "An error occurred. Please try again."; // Error handling
         }
     };
-    xhr.send(); // Send the request
+    xhr.send(); // Send the request to the server
 });
