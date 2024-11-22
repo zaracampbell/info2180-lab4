@@ -63,6 +63,14 @@ $superheroes = [
   ], 
 ];
 
+?>
+
+<ul>
+<?php foreach ($superheroes as $superhero): ?>
+  <li><?= $superhero['alias']; ?></li>
+<?php endforeach; ?>
+</ul>
+
 // Retrieve query from the request (if any)
 $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 
@@ -86,11 +94,11 @@ foreach ($superheroes as $superhero) {
         echo "<p>" . htmlspecialchars($superhero['biography']) . "</p>";
         $found = true;
         break; // Exit loop once we find the superhero
+    }
 }
 
 // If no superhero was found, display an error message
 if (!$found) {
     echo "Superhero not found.";
 }
-
 ?>
