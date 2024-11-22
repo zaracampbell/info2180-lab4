@@ -1,4 +1,4 @@
-document.getElementById('search').addEventListener('click', function() {
+document.getElementById('Search').addEventListener('click', function() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'superheroes.php', true);
 
