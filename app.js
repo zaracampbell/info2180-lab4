@@ -1,16 +1,36 @@
-document.getElementById("search").addEventListener("click", function () {
-    const query = document.getElementById("query").value.trim(); // Get user input
-    const xhr = new XMLHttpRequest(); // Create AJAX request
+document.getElementById('my-button').addEventListener('click', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'superheroes.php', true);
 
-    
 
-    xhr.open("GET", url, true); // Set up the GET request to superheroes.php
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            document.getElementById("result").innerHTML = xhr.responseText; // Display result
-        } else {
-            document.getElementById("result").innerHTML = "An error occurred. Please try again."; // Error handling
+    xhr.onload = function(){
+        if(xhr.status === 200){
+            if('search-input' === ''){
+
+            
+            document.getElementById('result-content').innerHTML = xhr.responseText;
+        } else{
+            for (i =0; i< sizeof($superheroes); i++){
+                if ('search-input' === $superheroes[i]){
+                    print(superheroes[i]);
+
+                }else{
+                    document.getElementById('result-content').innerHTML = xhr.responseText;
+                }
+            }
+        }
+            
+        }else{
+            document.getElementById('result-content').innerHTML = 'Error fetching data';
         }
     };
-    xhr.send(); // Send the request to the server
+
+
+    xhr.onerror = function(){
+        document.getElementById('result-content').innerHTML = 'Request Failed';
+    };
+
+    xhr.send();
 });
+    
+ 
